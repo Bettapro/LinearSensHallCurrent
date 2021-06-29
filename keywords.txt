@@ -1,0 +1,43 @@
+###############################################
+# Syntax Coloring Map For LinearSensHallCurrent
+###############################################
+
+###############################################
+# Datatypes (KEYWORD1)
+###############################################
+
+LinearSensHallCurrent		KEYWORD1
+LinearSensHallCurrentType	KEYWORD1
+
+###############################################
+# Methods and Functions (KEYWORD2)
+###############################################
+
+
+readRaw				KEYWORD2
+getVcc				KEYWORD2
+getAdcMaxVal		KEYWORD2
+setSampleDelay		KEYWORD2
+setSampleNumber		KEYWORD2
+readVoltage			KEYWORD2
+readCurrent			KEYWORD2
+setZeroVout			KEYWORD2
+setVASensitivity	KEYWORD2
+readLog				KEYWORD2
+getMaxCurrent		KEYWORD2
+getMinCurrent		KEYWORD2
+getZeroVuot			KEYWORD2
+setVASensitivity	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+WCS1500		LITERAL1
+WCS1600		LITERAL1
+WCS1700		LITERAL1
+WCS1800		LITERAL1
+
+WCS2800		LITERAL1
+WCS38A25	LITERAL1
+WCS6800		LITERAL1
