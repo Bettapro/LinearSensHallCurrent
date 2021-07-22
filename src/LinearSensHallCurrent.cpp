@@ -82,22 +82,34 @@ float LinearSensHallCurrent::getVASensitivity(LinearSensHallCurrentType model, f
 }
 
 LinearSensHallCurrent::LinearSensHallCurrent(LinearSensHallCurrentType model, uint8_t analogPinNum, float vcc, uint8_t adcBitResolution) {
-  this -> analogPinNum = analogPinNum;
-  this -> model = model;
-  this -> vcc = vcc;
-  this -> adcMaxVal = pow(2, adcBitResolution) - 1;
-  this -> lastRaw = 0;
-  this -> sampleNum = 1;
-  this -> sampleDelay = 0;
+  this->analogPinNum = analogPinNum;
+  this->model = model;
+  this->vcc = vcc;
+  this->adcMaxVal = pow(2, adcBitResolution) - 1;
+  this->lastRaw = 0;
+  this->sampleNum = 1;
+  this->sampleDelay = 0;
+  
+  this->extRawReadFn = 0;
 
   this -> initParameter();
 }
+
+ void LinearSensHallCurrent::setRawReadFn( int (*extRawReadFn)()){
+	 this->extRawReadFn = extRawReadFn;
+	 
+ }
 
 int LinearSensHallCurrent::readRaw(bool now) {
   if (now) {
     uint32_t acc = 0;
     for (uint8_t i = 0; i < this -> sampleNum; i++) {
-      acc += analogRead(this -> analogPinNum);
+      if(this->extRawReadFn == 0){
+		acc += analogRead(this -> analogPinNum);
+	  }
+	  else{
+		acc += this->extRawReadFn();
+	  }
       if (this -> sampleDelay > 0) {
         delay(this -> sampleDelay);
       }

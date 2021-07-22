@@ -20,6 +20,7 @@ public:
 
   LinearSensHallCurrent(LinearSensHallCurrentType model, uint8_t analogPinNum, float vcc, uint8_t adcBitResolution);
 
+  void setRawReadFn( int (*extRawFn)());
   int readRaw(bool now = true);
   float getVcc();
   float getAdcMaxVal();
@@ -39,6 +40,7 @@ private:
   void initParameter();
   uint8_t analogPinNum;
   LinearSensHallCurrentType model;
+  int (*extRawReadFn)() ;
   int lastRaw;
   uint8_t sampleNum;
   uint16_t sampleDelay;

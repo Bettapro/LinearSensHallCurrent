@@ -15,6 +15,7 @@ LinearSensHallCurrentType	KEYWORD1
 
 
 readRaw				KEYWORD2
+setRawReadFn		KEYWORD2
 getVcc				KEYWORD2
 getAdcMaxVal		KEYWORD2
 setSampleDelay		KEYWORD2
