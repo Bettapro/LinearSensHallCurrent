@@ -11,7 +11,8 @@ typedef enum {
   WCS1800,
   WCS2800,
   WCS38A25,
-  WCS6800
+  WCS6800,
+  CUSTOM
 }
 LinearSensHallCurrentType;
 
