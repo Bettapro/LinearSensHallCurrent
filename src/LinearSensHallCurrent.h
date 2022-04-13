@@ -53,4 +53,4 @@ private:
   float vASensitivity;
 };
 
-#endif;
+#endif
